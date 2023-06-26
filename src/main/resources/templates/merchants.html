@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+    <div class="row">
+        <h3>List of merchants</h3>
+        <a th:href="@{/merchant/add}" class="btn btn-primary" type="button">Add merchant</a>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+	                <th>merchant Name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-th-each="merchant : ${merchants}">
+                    <td data-th-text="${merchant.name}">...</td>
+                    <td><a th:href="@{/merchant/edit?merchantId=}+${merchant.id}">Edit</a></td>
+                    <td><a th:href="@{/merchant/delete?merchantId=}+${merchant.id}">delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>
