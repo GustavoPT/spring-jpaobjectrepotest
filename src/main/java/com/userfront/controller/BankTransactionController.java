@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/bankTransaction")
+@RequestMapping("/bankTransactions")
 public class BankTransactionController {
 
     @Autowired

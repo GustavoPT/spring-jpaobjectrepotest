@@ -20,43 +20,47 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-
     @RequestMapping("/")
     public String home() {
-        return "redirect:/index";
+        return "redirect:/login";
     }
 
-    @RequestMapping("/index")
-    public String index() {
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String home() {
+//        return "redirect:/login";
+//    }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signup(Model model) {
-
-        User user = new User();
-
-        model.addAttribute("user", user);
-        return "signup";
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signupPost(@ModelAttribute("user") User user, Model model) {
-        if (userRepository.findByUsernameAndEmail(user.getUsername(), user.getEmail()) != null) {
-            if (userRepository.findByEmail(user.getEmail()) != null) {
-                model.addAttribute("emailExists", true);
-            }
-
-            if (userRepository.findByUsername(user.getUsername()) != null) {
-                model.addAttribute("usernameExists", true);
-            }
-
-            return "signup";
-        } else {
-            userRepository.save(user);
-            return "redirect:/";
-        }
-    }
+//    @RequestMapping("/index")
+//    public String index() {
+//        return "index";
+//    }
+//
+//    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+//    public String signup(Model model) {
+//
+//        User user = new User();
+//
+//        model.addAttribute("user", user);
+//        return "signup";
+//    }
+//
+//    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+//    public String signupPost(@ModelAttribute("user") User user, Model model) {
+//        if (userRepository.findByUsernameAndEmail(user.getUsername(), user.getEmail()) != null) {
+//            if (userRepository.findByEmail(user.getEmail()) != null) {
+//                model.addAttribute("emailExists", true);
+//            }
+//
+//            if (userRepository.findByUsername(user.getUsername()) != null) {
+//                model.addAttribute("usernameExists", true);
+//            }
+//
+//            return "signup";
+//        } else {
+//            userRepository.save(user);
+//            return "redirect:/";
+//        }
+//    }
 
     @RequestMapping("/userFront")
     public String userFront(Model model) {

@@ -40,7 +40,7 @@ public class UserController {
 
         model.addAttribute("user", user);
 
-//        userRepository.saveUser(user);
+        userRepository.save(user);
 
         return "profile";
     }

@@ -18,6 +18,7 @@ public class LoginController {
     @Autowired
     private UserRepository us;
 
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "loginclient";
@@ -29,11 +30,12 @@ public class LoginController {
                         Model model) {
         User user = us.findByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
-            return "redirect:/dashboard";
+
+            return "redirect:/banktransactions";
         } else {
             // Authentication failed
             model.addAttribute("error", "Invalid username or password");
-            return "login";
+            return "loginclient";
         }
     }
 }
