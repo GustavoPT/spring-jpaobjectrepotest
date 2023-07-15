@@ -21,11 +21,6 @@ public class User {
 
     private boolean enabled = true;
 
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Account> accounts;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<BankTransaction> bankTransactions;
@@ -33,6 +28,14 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<Card> cards;
+
+    public User(String username, String email, String password) {
+        super();
+        this.username = username;
+        this.password = password;
+        this.email = email;
+
+    }
 
 
     public Long getUserId() {
@@ -114,13 +117,8 @@ public class User {
     }
 
 
-    public List<Account> getAccounts() {
-        return accounts;
-    }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
+
 
     @Override
     public String toString() {

@@ -15,6 +15,8 @@ public class BankTransaction {
 
     String date;
 
+    String merchant;
+
     public int getId() {
         return id;
     }
@@ -47,18 +49,6 @@ public class BankTransaction {
     @JoinColumn(name = "card")
     private Card card;
 
-    @ManyToOne
-    @JoinColumn(name = "account")
-    private Account account;
-
-    @ManyToOne
-    @JoinColumn(name = "merchant")
-    private Merchant merchant;
-
-    @ManyToOne
-    @JoinColumn(name = "product")
-    private Product product;
-
     public User getUser() {
         return user;
     }
@@ -75,35 +65,15 @@ public class BankTransaction {
         this.card = card;
     }
 
-    public Merchant getMerchant() {
-        return merchant;
-    }
-
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
     public BankTransaction() {
         // TODO Auto-generated constructor stub
     }
 
-    public BankTransaction(int id, double amount, String date, User user, Card card, Merchant merchant, Product product, Account account) {
+    public BankTransaction(int id, double amount,
+                           String date, User user,
+                           Card card, String merchant,
+                           String product, String account) {
         super();
         this.id = id;
         this.amount = amount;
@@ -111,7 +81,5 @@ public class BankTransaction {
         this.user = user;
         this.card = card;
         this.merchant = merchant;
-        this.product = product;
-        this.account = account;
     }
 }

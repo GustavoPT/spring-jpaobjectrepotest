@@ -17,17 +17,21 @@ class Card{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="card_id")
     int id;
+
     int number;
     int year;
     int code;
     int month;
     String image;
     String name;
-    
-    public Card() {
-    	
-    }
-    public Card( int number, int year, int code, int month, String image,String name, User user) {
+
+    public Card( int number,
+				 int year,
+				 int code,
+				 int month,
+				 String image,
+				 String name,
+				 User user) {
 		super();
 		this.number = number;
 		this.year = year;
@@ -36,6 +40,10 @@ class Card{
 		this.image = image;
 		this.name=name;
 		this.user = user;
+	}
+
+	public Card() {
+
 	}
 
 	public String getImage() {

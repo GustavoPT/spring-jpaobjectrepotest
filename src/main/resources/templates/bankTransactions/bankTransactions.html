@@ -7,7 +7,7 @@
 <div class="container main">
     <div class="row">
         <h3>List of Transactions</h3>
-        <a th:href="@{/transaction/add}" class="btn btn-primary" type="button">Add Transaction</a>
+        <a th:href="@{/bankTransactions/add}" class="btn btn-primary" type="button">Add Transaction</a>
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
                 <thead>
@@ -22,7 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr data-th-each="transaction : ${transactions}">
+                <tr data-th-each="transaction : ${bankTransactions}">
                     <td data-th-text="${transaction.product.name}">...</td>
                     <td data-th-text="${transaction.amount}">...</td>
                     <td data-th-text="${transaction.date}">...</td>

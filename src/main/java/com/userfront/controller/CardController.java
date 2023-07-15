@@ -45,7 +45,7 @@ public class CardController {
 		return "cards";
 	}
 	
-	@RequestMapping("/add")
+	@RequestMapping("/add/view")
 	public String add(Model model) {
 		Card card=new Card();
         model.addAttribute("card", card);
